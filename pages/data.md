@@ -2,8 +2,11 @@
 ***
 
 ## Dataset
-Participants will work with simulated datasets mimicking observations from the Hyper Suprime-Cam (HSC) survey. The weak lensing convergence maps are generated from cosmological simulations with 101 different cosmological models (parameters: $\Omega_m$ and $S_8$) and realistic systematic effects such as the baryonic effect and photometric redshift uncertainty. These systematics are introduced in the data generation process, which we fully sampled in the training set so that the participants can marginalize over them. The parameters corresponding to these systematic models are nuisance parameters and need to be marginalized during inference. Each data is a 2D image of dimension 1424x176, corresponds to the convergence map of redshift BIN 2 of WIDE12H in HSC Y3, pixelized with a resolution of 2 arcmin.
+Participants will work with simulated datasets mimicking observations from the Hyper Suprime-Cam (HSC) survey. Each data is a 2D image of dimension 1424x176, corresponds to the convergence map of redshift BIN 2 of WIDE12H subfield in HSC Y3, pixelized with a resolution of 2 arcmin. 
 
+These weak lensing convergence maps are generated from high-resolution cosmological ray-tracing simulations with $101$ different spatially-flat $\Lambda$CDM cosmological models. Each cosmological model differs in cosmological parameters $\Omega_m$, the fraction of the total matter density of the Universe, and $\sigma_8$, the amplitude of matter fluctuations on $8 \mathrm{Mpc}/h$ scales in the Universe today. These two parameters serve as the label of each data. 
+
+In addition to the cosmological signal, we also model various realistic systematic effects (distortions to the data), such as baryonic effect and photometric redshift uncertainty. These systematics are introduced in the data generation process, which we fully sampled in the training set so that the participants can marginalize over them. The parameters corresponding to these systematic models are nuisance parameters and need to be marginalized during inference.
 
 We have prepared training data for participants that can be downloeded from [Here](https://www.codabench.org/datasets/download/c99c803a-450a-4e51-b5dc-133686258428/)
 
