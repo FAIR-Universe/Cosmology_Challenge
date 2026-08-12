@@ -2,9 +2,9 @@
 ***
 To be eligible for participation in the FAIR UNIVERSE: WEAK LENSING UNCERTAINTY CHALLENGE, all contestants must adhere to the stipulated terms and conditions. Please take note that the organizing team retains the prerogative to make changes or additions to the terms and conditions in the course of the competition. You must provide a valid email to be notified.
 
-This competition is for educational and research purposes, and it is governed by the [<ins>General ChaLearn Contest Rules</ins>](http://www.causality.inf.ethz.ch/GeneralChalearnContestRuleTerms.html).
-
 ## General Terms
+
+- **Competition Rules**: This competition is for educational and research purposes. The competition is governed by the [<ins>General ChaLearn Contest Rules</ins>](http://www.causality.inf.ethz.ch/GeneralChalearnContestRuleTerms.html), and it must be followed throught the competition.
 
 - **Evaluation and Final Rankings for Prizes**: The public test set and the public leaderboard on Codabench are designed for Participants to develop and compare their methods. To win the prizes, Participants must submit their complete source code and a concise technical write-up of their solution to the Organizers at the end of the competition. The Organizers will determine the final rankings using a holdout test set. The prizes will be awared based on the final rankings.
 
@@ -14,7 +14,7 @@ This competition is for educational and research purposes, and it is governed by
 
 - **Ranking and Tie-Breaking:** In the event of unforeseen issues or in the interest of fairness, the Organizers reserve the right to adjust participant rankings, disqualify results, or declare a tie between two or more Participants. The Organizers' decision in such matters will be final and binding.
 
-- **Cheating and Unfair Practices:** Any form of cheating, score gaming, or attempt to manipulate the leaderboard or evaluation system is strictly prohibited. The Organizers reserve the right to disqualify any Participant found to be engaging in such activities.
+- **Cheating and Unfair Practices:** Any form of cheating, score gaming, or attempt to utilize data leakage and manipulate the leaderboard or evaluation system is strictly prohibited. The Organizers reserve the right to disqualify any Participant found to be engaging in such activities.
 
 - **Confidentiality of Submissions:** Participants are strictly prohibited from sharing their submission code, methodologies, or any non-public competition data with other Participants or making them public for the duration of the competition. Violation of this rule will result in immediate disqualification.
 

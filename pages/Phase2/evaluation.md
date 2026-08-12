@@ -22,10 +22,3 @@ In this competition, the model's OoD detection performance will be evaluated by 
 This metric is approximately proportional to the area under the ROC curve over the given FPR range in logarithmic scale. 
 
 The FPR range $[0.001,0.05]$ is chosen to match the regime of practical interest for scientific anomaly detection, where the FPR corresponds to the Type-I error rate (significance level $\alpha$). The interval spans thresholds from weak evidence ($\alpha \sim 0.05$) to stringent detection ($\alpha \sim 0.001$, approximately $3\sigma$). Focusing on this range therefore rewards models with high detection power under practically meaningful false-positive constraints, while logarithmic spacing emphasizes performance at the smallest FPRs.
-
-
-
-#### ⚠️ Important requirement:
-As the goal of this competition is to facilitate the development of OoD detection methods that are applicable to realistic observational scenarios—where test data may be extremely limited—we require that submitted methods are capable of identifying OoD samples even when only a single test instance is available. **Any OoD detection approaches that rely on aggregating information across multiple test samples will not be considered for the final rankings or prize eligibility**.
-
-The organizers reserve the right to evaluate submissions to verify compliance with this requirement and to disqualify methods that implicitly or explicitly exploit multiple test instances. See `Terms` tab for more information about the competition rules and final evaluation.

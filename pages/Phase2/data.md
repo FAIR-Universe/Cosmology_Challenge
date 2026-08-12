@@ -8,7 +8,7 @@ These weak lensing convergence maps are generated from high-resolution cosmologi
 In addition to the cosmological signal, we also model various realistic systematic effects (distortions to the data), such as baryonic effect and photometric redshift uncertainty. These systematics are introduced in the data generation process, which we fully sampled in the training set so that the participants can marginalize over them. The parameters corresponding to these systematic models are nuisance parameters and need to be marginalized during inference.
 
 We have prepared the training data and the public test data for participants to develop their methods that will be scored on Codabench. Please download them from
-[**<ins>Training Data / Test Data (15.5 GB)</ins>**](https://www.codabench.org/datasets/download/71a3c810-f065-4af9-9476-a12c652ceb80/).
+[**<ins>Training Data / Test Data (8.7 GB)</ins>**](https://www.codabench.org/datasets/download/09b7a27a-bfb3-4031-a5b0-9b3c533f45e6/).
 
 In the downloaded file, you will find:
 - **`WIDE12H_bin2_2arcmin_kappa_newrealization.npy`**: The training data of this competition. It contains $101 \times 256$ realizations of noiseless convergence maps. In this competition, we refer to **in-distribution (InD)** data as any data generated using the same simulation setup and the same distributions of cosmological and physical parameters as the training data.
@@ -29,5 +29,9 @@ In the downloaded file, you will find:
 <img src="image-1.png" width="400"> 
 </center><br>
 
-- **`WIDE12H_bin2_2arcmin_kappa_test_phase2_new.npy`**: 
-The public test dataset for this competition contains 10,000 noisy convergence maps. A subset of these samples is generated under alternative physical models and is therefore considered out-of-distribution (OoD), while the remaining samples are in-distribution (InD). The OoD samples are labeled as $y_i=1$, and the InD samples as $y_i=0$. However, participants are not provided with the ground-truth labels, any explicit OoD examples, or details regarding how the OoD data are generated. Participants are required to submit their predictions on the public test set to Codabench (see `Evaluation` and `Starting Kit` tabs for more details).
+- **`WIDE12H_bin2_2arcmin_kappa_test_phase2_new_v2.npy`**: 
+The public test dataset for this competition contains 10,000 noisy convergence maps. A subset of these samples is generated under alternative physical models and is therefore considered out-of-distribution (OoD), while the remaining samples are in-distribution (InD). The OoD samples are labeled as $y_i=1$, and the InD samples as $y_i=0$. However, participants are not provided with the ground-truth labels, any explicit OoD examples, or details regarding how the OoD data are generated. Participants are required to submit their predictions on the public test set to Codabench (see `Evaluation` and `Starting Kit` tabs for more details).  
+
+    ⚠️ **Note 1:** On August 12 2026, the test dataset of this competition has been updated to this `*_test_phase2_new_v2.npy` version to fix some numerical problems. The `*_test_phase2_new.npy` version that was previously released by this competition is no longer valid, and you should only use the `*_test_phase2_new_v2.npy` file provided here for further submissions.
+
+    ⚠️ **Note 2:** The test dataset can only be used as inputs for inference. It should **NOT** be used to collectively to fit, train, adapt, cluster, calibrate, normalize, rank, or modify the model. For more details, please refer to the **Rules for OoD Detection Methods** section in `Overview`.
