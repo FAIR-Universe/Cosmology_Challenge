@@ -88,9 +88,6 @@ The format looks like this:
 ### ⬇️ [<ins>Dummy Sample Submission</ins>](https://www.codabench.org/datasets/download/f07c1ec8-5a6c-41c8-a139-1e433f606e9b/)
 
 
-### Scoring Logs
+### Scoring Results
 Once you make a successful submission, you will be able to:
 - Find your own score on the public leaderboard in the [`Results`](https://www.codabench.org/competitions/10902/#/results-tab) tab.
-
-
-- Check the TPR values of your submission evalauted at $100$ logarithmically spaced FPRs between $0.001$ and $0.05$. Simply navigate to [`My Submissions`](https://www.codabench.org/competitions/10902/#/participate-tab) tab ➔ Any of your submissions ➔ LOGS ➔ Scoring Logs ➔ `stdout`. The TPR values are used to produce the final score of your submission (see `Evaluation` tab for more details). This information may be useful for you to improve your model performance.
