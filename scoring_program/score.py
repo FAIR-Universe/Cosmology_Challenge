@@ -116,12 +116,6 @@ class Scoring:
 
         fpr_log_interval, tpr_log_interval, score_phase2 = _score_phase2(self.reference_data, self.ingestion_result["ood_scores"])
 
-        print("------------------")
-        print(f"FPR values: {fpr_log_interval}")
-        print(f"TPR given FPR values: {tpr_log_interval}")
-        print(f"Phase-2 Score (Mean TPR values): {score_phase2}")
-        print("------------------")
-
         self.scores_dict = {
             "Score": score_phase2,
         }
