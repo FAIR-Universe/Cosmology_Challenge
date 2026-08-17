@@ -55,7 +55,7 @@ class Scoring:
             reference_dir (str): The reference data directory name.
         """
         print("[*] Reading reference data")
-        reference_data_file = os.path.join(reference_dir, "label_test_phase2.npy")  # An array of 0 (InD) and 1 (OoD)
+        reference_data_file = os.path.join(reference_dir, "label_test_phase2_fix_new.npy")  # An array of 0 (InD) and 1 (OoD)
         self.reference_data = np.load(reference_data_file)
 
     def load_ingestion_result(self, predictions_dir):
