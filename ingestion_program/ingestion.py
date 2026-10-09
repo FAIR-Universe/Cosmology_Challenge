@@ -18,22 +18,19 @@ class Ingestion:
         * start_time (datetime): The start time of the ingestion process.
         * end_time (datetime): The end time of the ingestion process.
         * model (object): The model object.
-        * train_data (dict): The train data dict.
-        * test_data (dict): The test data dict.
+        * test_data (ndarray): The test data array.
+        * ood_scores (ndarray): The out-of-distribution scores array.
     """
 
     def __init__(self):
         """
         Initialize the Ingestion class.
-
         """
         self.start_time = None
         self.end_time = None
         self.model = None
-        self.train_data = None
         self.test_data = None
-        self.means = None
-        self.errorbars = None
+        self.ood_scores = None
 
     def start_timer(self):
         """
@@ -78,46 +75,18 @@ class Ingestion:
             with open(duration_file, "w") as f:
                 f.write(json.dumps({"ingestion_duration": duration_in_mins}, indent=4))
 
-    def load_train_and_test_data(self, input_dir):
+    def load_test_data(self, input_dir, data_file_name):
         """
-        Load the training and testing data.
+        Load the test data.
 
         """
-        print("[*] Loading Train data")
+        print("[*] Loading Test data")
 
-        mask_file = os.path.join(input_dir, "WIDE12H_bin2_2arcmin_mask.npy")
-        kappa_file = os.path.join(input_dir, "WIDE12H_bin2_2arcmin_kappa.npy")
-        labels_file = os.path.join(input_dir, "label.npy")
-
-        shape = [1424, 176]
-
-        mask = np.load(mask_file)
-        kappa = np.zeros((101, 256, *shape), dtype=np.float16)
-
-        # This is the train data; shape = (101, 256, 1424, 176)
-        # 101 = realizations of 2 parameters of interest
-        # 256 = realizations of 3 nuisance parameters
-        # (1424, 176) = image dimension
-        kappa[:, :, mask] = np.load(kappa_file)
-
-        # Train label shape = (101, 256, 2 POIs + 3 predefined NPs) = (101, 256, 5)
-        labels = np.load(labels_file)
-
-        self.train_data = {
-            "data": kappa,
-            "labels": labels
-        }
+        test_data_file = os.path.join(input_dir, data_file_name)
 
         print("[*] Loading Test data")
 
-        rng = np.random.default_rng(seed=5566)
-        Ntest = 100
-        index = rng.choice(101*256, size=Ntest, replace=False)
-        test_data = kappa.reshape(101*256, *shape)[index]
-
-        self.test_data = {
-            "data": test_data,
-        }
+        self.test_data = np.load(test_data_file, mmap_mode="r", allow_pickle=False)
 
     def init_submission(self, Model):
         """
@@ -130,20 +99,62 @@ class Ingestion:
 
         self.model = Model()
 
-    def fit_submission(self):
-        """
-        Fit the submitted model.
-        """
-        print("[*] Fitting Submmited Model")
-        # self.model.fit(self.train_data)
-        self.model.fit()
-
     def predict_submission(self):
         """
-        Make predictions using the submitted model.
+        Make predictions using the submitted model and validate its output.
         """
         print("[*] Calling predict method of submitted model")
-        self.means, self.errorbars = self.model.predict(self.test_data)
+        ood_scores = self.model.predict(self.test_data)
+        self.ood_scores = self._validate_ood_scores(ood_scores)
+
+    def _validate_ood_scores(self, ood_scores):
+        """
+        Validate and normalize the output returned by the submitted model.
+
+        The model must return one finite, real-valued numeric score for every
+        test sample.
+
+        Args:
+            ood_scores: One-dimensional array-like object returned by
+                ``Model.predict``.
+
+        Returns:
+            np.ndarray: Validated scores with dtype float64.
+        """
+        try:
+            scores = np.asarray(ood_scores)
+        except Exception as error:
+            raise TypeError(
+                "Model.predict must return a one-dimensional numeric array-like "
+                "object"
+            ) from error
+
+        if scores.ndim != 1:
+            raise ValueError(
+                "Model.predict must return a one-dimensional array of OoD "
+                f"scores; received shape {scores.shape}"
+            )
+
+        expected_size = len(self.test_data)
+        if len(scores) != expected_size:
+            raise ValueError(
+                f"Model.predict must return {expected_size} OoD scores; "
+                f"received {len(scores)}"
+            )
+
+        if not np.issubdtype(scores.dtype, np.number) or np.issubdtype(
+            scores.dtype, np.complexfloating
+        ):
+            raise TypeError(
+                "Model.predict must return real numeric OoD scores; "
+                f"received dtype {scores.dtype}"
+            )
+
+        scores = scores.astype(np.float64, copy=False)
+        if not np.all(np.isfinite(scores)):
+            raise ValueError("Model.predict returned NaN or infinite OoD scores")
+
+        return scores
 
     def compute_result(self):
         """
@@ -151,15 +162,8 @@ class Ingestion:
         """
         print("[*] Computing Ingestion Result")
 
-        def to_list(x):
-            try:
-                return x.tolist()
-            except AttributeError:
-                return x
-
         self.ingestion_result = {
-            "means": to_list(self.means),
-            "errorbars": to_list(self.errorbars)
+            "ood_scores": self.ood_scores.tolist()
         }
 
     def save_result(self, output_dir=None):
@@ -169,6 +173,7 @@ class Ingestion:
         Args:
             output_dir (str): The output directory to save the result files.
         """
+        print("[*] Saving Ingestion Result")
         result_file = os.path.join(output_dir, "result.json")
         with open(result_file, "w") as f:
             f.write(json.dumps(self.ingestion_result, indent=4))
