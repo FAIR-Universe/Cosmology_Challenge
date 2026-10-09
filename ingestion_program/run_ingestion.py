@@ -2,6 +2,9 @@
 # Imports
 # ------------------------------------------
 import sys
+
+sys.path.append("..")
+
 import argparse
 import os
 
@@ -22,6 +25,13 @@ parser.add_argument(
     help="True when running on Codabench",
     action="store_true",
 )
+
+# ------------------------------------------
+# Data
+# ------------------------------------------
+# Change the filename if needed
+TEST_DATA_FILENAME = "WIDE12H_bin2_2arcmin_kappa_test_phase2_new_v2.npy"  # This is the public test data
+
 
 # ------------------------------------------
 # Main
@@ -61,22 +71,19 @@ if __name__ == "__main__":
     # Start timer
     ingestion.start_timer()
 
-    # Load train and test data
-    ingestion.load_train_and_test_data(input_dir)
+    # Load test data
+    ingestion.load_test_data(input_dir, TEST_DATA_FILENAME)
 
-    # initialize submission
+    # Initialize submission
     ingestion.init_submission(Model)
 
-    # fit submission
-    ingestion.fit_submission()
-
-    # predict submission
+    # Predict submission
     ingestion.predict_submission()
 
-    # compute result
+    # Compute result
     ingestion.compute_result()
 
-    # save result
+    # Save result
     ingestion.save_result(output_dir)
 
     # Stop timer

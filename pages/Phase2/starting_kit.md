@@ -70,22 +70,10 @@ You can check the starting kit notebooks on our GitHub repository or through the
 
 
 ### Dummy Sample Submission
-Dummy sample submission is provided for you to understand what is expected as a submission. The sample submission is a zip that only contains one json file named `result.json`. This file contains a list of $10,000$ OoD scores (`float` numbers) defined by participants' methods, which must monotically increase with the confidence that a given test data is OoD.
-
-The format looks like this:
-
-```json
-{
-    "ood_scores": [
-            3.5678,
-            1.6782,
-        ... # total 10,000 items
-        ]
-}
-```
+Dummy sample submission is provided for you to understand what is expected as a submission. The sample submission is a zip that contains a required file named `model.py`. You can add additional files if needed. This model file should follow the structure given in the Dummy Submission File below.
 
 
-### ⬇️ [<ins>Dummy Sample Submission</ins>](https://www.codabench.org/datasets/download/f07c1ec8-5a6c-41c8-a139-1e433f606e9b/)
+### ⬇️ [<ins>Dummy Sample Submission</ins>](https://www.codabench.org/datasets/download/329f8301-1d66-4c73-a0d0-d08bdfba6ecc/)
 
 
 ### Scoring Results

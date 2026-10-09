@@ -85,6 +85,7 @@ class Scoring:
         Compute the scores for the competition.
 
         """
+        print("[*] Computing scores")
 
         # Compute the score for Phase 2.
         # The rank on the leaderboard is sorted by this.
