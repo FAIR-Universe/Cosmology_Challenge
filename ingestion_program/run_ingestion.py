@@ -52,7 +52,9 @@ if __name__ == "__main__":
         program_dir = os.path.join(root_dir_name, "ingestion_program")
         submission_dir = os.path.join(root_dir_name, "sample_code_submission")
     else:
-        input_dir = "/app/data"
+        # `data` is a directory inside the compute worker
+        # input_dir = "/app/data"
+        input_dir = "/app/input_data"
         output_dir = "/app/output"
         program_dir = "/app/program"
         submission_dir = "/app/ingested_program"
