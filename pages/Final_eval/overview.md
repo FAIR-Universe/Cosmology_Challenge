@@ -11,7 +11,7 @@ The public phase of the competition has ended. **To be eligible for the final ho
 
 3. **You must use this Codabench page to prepare a model submission file.** 
     
-    Please sign up this Codabench page with the Codabench account you used for the public competition phase. This Codabench page enables you to prepare, test, and debug your model submission file for the final evaluation. 
+    Please sign up for this Codabench page with the Codabench account you used for the public competition phase. This Codabench page enables you to prepare, test, and debug your model submission file for the final evaluation. 
     
     In this new Codabench page, **you will submit ***a model*** (not a prediction).** Codabench will directly run your model using an AWS instance and a predefined Docker image to produce your score. 
     You have to prepare your inference script, saved model checkpoints, and any precomputed files in a simple format we defined (a ZIP file with `model.py` and files for model submission; see below). 
