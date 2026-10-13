@@ -22,4 +22,4 @@ The model submission examples (`model.py`, saved checkpoints, and relevant files
 ### Scoring Results
 ***
 Once you make a successful submission, you will be able to:
-- Find your own score on the public leaderboard in the [`Results`](https://www.codabench.org/competitions/10902/#/results-tab) tab.
+- Find your own score on the public leaderboard in the [`Results`](https://www.codabench.org/competitions/18339/#/results-tab) tab.
