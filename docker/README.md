@@ -1,2 +1,2 @@
 # Docker
-Dockerfile for building the image used for the Cosmology challenge
+Dockerfile for building the image used for the final evaluation of the Phase 2 Weak Lensing ML Challenge. The `requirements-lock.txt` file contains a record of the exact Python environment installed in the Docker image.
