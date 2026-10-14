@@ -1,6 +1,6 @@
 # Evaluation
 ***
-Participants must submit their predictions to the Codabench platform using the public test data we provide. 
+Participants must submit a ZIP file that contains `model.py` and the saved files of their method to the Codabench platform. Codabench will run participants' inference pipeline on the public test dataset and produce a result that will be automatically scored.
 
 ## Out-of-Distribution Detection Scoring Metric
 
