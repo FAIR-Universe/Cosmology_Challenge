@@ -21,7 +21,7 @@ The public phase of the competition has ended. **To be eligible for the final ho
     
     ⚠️ **Very Important notes:**
 
-    - We will only accept your model submission for the holdout dataset evaluation to determine the final ranking if your model submission can be successfully run on this Codabench page and reproduce your public score.
+    - Your model submission will only be accepted for final evaluation on the holdout dataset to determine the final rankings if it runs successfully on this Codabench page and reproduces your public leaderboard score within a small tolerance to account for stochasticity or differences in the execution environment.
 
     - The new Codabench page can only be used to test and debug your model submission. It should **NOT** be used for further model development. 
 
