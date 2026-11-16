@@ -2,17 +2,36 @@
 *** 
 The **Phase 2** of Weak Lensing Machine Learning Uncertainty Challenge explores ***out-of-distribution (OoD) detection*** AI techniques for **Weak Gravitational Lensing Cosmology**.
 
-🚀 **Phase 2** of the competition is now open for submission until **11:59 PM October 11th 2026 (UTC)**!  
-👾 This competition belongs to one of the NeurIPS 2026 competitions. Enter the competition today to win our prizes and an opportunity to present in our NeurIPS 2026 workshop!   
-🚩 To enter the competition, please register through your **affiliation/institution/company email address**.  
+***
 
-**Notes:**  
-⚠️ A registration with public-domain email address (e.g., gmail, outlook, etc.) will by default not be approved. Please contact us if you have difficulty in entering the competition with an affiliation email address.  
-⚠️ Please carefully review our terms and the [<ins>General ChaLearn Contest Rules</ins>](http://www.causality.inf.ethz.ch/GeneralChalearnContestRuleTerms.html) in the `Terms` tab before entering the competition. 
+🚀 **Update:** The public submission phase of the **Phase 2** competition had ended on October 11th 2026.  
+
+<span style="background: linear-gradient(to right, #d0e8ff, #b3d1ff); color: #003366; padding: 12px 20px; border-radius: 8px; font-weight: 600; font-size: 22px; display: inline-block;">
+  Winners are announced <a href="https://fair-universe.lbl.gov/WeakLensing-Uncertainty-Challenge-Phase2.html" target="_blank" style="color: #0056b3; text-decoration: underline;">here</a>
+</span>
+<br><br>
+
+👾 This competition belongs to one of the NeurIPS 2026 competitions. 
+All winners are invited to present at our NeurIPS 2026 Competition Workshop in Paris:
+
+- Time: December 12th (Saturday) 3:30 PM—5:45 PM (CET)
+- Location: Room 362-363, Palais des Congrès
+- Agenda & talks: https://neurips.cc/virtual/2026/loc/paris/competition/137690?show_abstract=true. More details will be announced soon.
+
 
 ## Announcements
 ***
-📣  **August 12 2026 (crucial update)**   
+
+🏆  **October 26 2026**   
+Announcement of the final ranking and prize winners.
+
+📣  **October 13–October 20**   
+Period of the final submission phase. 
+
+📣  **October 11 2026**   
+End of the public competition phase.
+
+📣  **August 12 2026**   
 - We identified a crucial problem in the original test dataset we released. To fix the problem, we have regenerated all test realizations and updated the test dataset to the `*_test_phase2_new_v2.npy` version in the `Data` tab. The physics in the new test dataset remains unchanged. However, participants must use the new test dataset for further submissions.  
 - The test dataset we previously released (the file with name `*_test_phase2_new.npy`) and any submisssions based on it are no longer valid.  We have reset the public leaderboard so that participants can resubmit their predictions. We apologize for the inconveneince.
 
@@ -91,7 +110,9 @@ The holdout evaluation is intended to assess robustness and generalization, and 
 - Register in the Competition
 - Submit the downloaded file
 
-
+**Notes:**  
+⚠️ A registration with public-domain email address (e.g., gmail, outlook, etc.) will by default not be approved. Please contact us if you have difficulty in entering the competition with an affiliation email address.  
+⚠️ Please carefully review our terms and the [<ins>General ChaLearn Contest Rules</ins>](http://www.causality.inf.ethz.ch/GeneralChalearnContestRuleTerms.html) in the `Terms` tab before entering the competition. 
 
 ## Submissions
 ***
