@@ -16,8 +16,7 @@ All winners are invited to present at our NeurIPS 2026 Competition Workshop in P
 
 - Time: December 12th (Saturday) 3:30 PM—5:45 PM (CET)
 - Location: Room 362-363, Palais des Congrès
-- Agenda & talks: https://neurips.cc/virtual/2026/loc/paris/competition/137690?show_abstract=true. More details will be announced soon.
-
+- Agenda & talks: <a href="https://fair-universe.lbl.gov/WeakLensing-Uncertainty-Challenge-Phase2-Workshop.html" target="_blank">Workshop Agenda</a>. More details will be announced soon.
 
 ## Announcements
 ***
